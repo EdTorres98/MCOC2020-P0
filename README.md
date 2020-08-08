@@ -38,3 +38,7 @@
 * Dirección IP (Interna, del router): 192.168.18.15
 * Dirección IP (Externa, del ISP): 170.82.191.224
 * Proveedor internet: Pacifico Cable
+
+# Desempeño MATMUL
+
+![Gráfico](https://user-images.githubusercontent.com/69275311/89700720-7d145a00-d8fe-11ea-88bc-e37b907ef8e4.png)
