@@ -62,3 +62,18 @@
  * Sí, se utiliza más de un procesador para la ejecución del código.
  
   ![Captura de Pantalla 2020-08-07 a la(s) 22 57 01](https://user-images.githubusercontent.com/69275311/89701053-aa163c00-d901-11ea-9214-624a84d35450.png)
+
+# Desempeño MIMATMUL
+
+![Gráfico](https://user-images.githubusercontent.com/69275311/89853274-fca06400-db5e-11ea-8ff4-a9447caf243b.png)
+
+* ¿Como difiere del gráfico del profesor/ayudante? 
+  * En este caso los gráficos son similares, pero esta vez en el gráfico del tiempo transcurrido no se generan peaks o un comportamiento no lineal como ocurría anteriormente. Esta vez se graficó hasta un N=200 ya que al utilizar los valores de MATMUL se demoraba 1 hora para lograr correr un archivo.
+
+* ¿A qué se pueden deber las diferencias con MATMUL?
+  * Se debe a que al utilizar en este caso una función realizada en python puro, los procesadores no trabajarán de la misma manera y en la misma cantidad como ocurría con MATMUL, ya que ahora se realiza en un alto nivel, a diferencia de la multiplicación realizada anteriormente donde era mucho más cercana a un bajo nivel, generando que los procesadores trabajaran de manera más efectiva, por ende, en menor tiempo. En este caso ambos gráficos son relativamente lineales como se observan, ya que en el proceso de generar cada matriz iba tardabando mucho más a medida que aumentaba el N.
+
+* Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen de su uso de procesador durante alguna corrida para confirmar.
+ * Para MIMATMUL los procesadores que corrían eran más bajos, haciendo que trabajaran los núcleos con un menor desempeño, lo que se traduce en lo que tardaba el programa en terminar de correr a comparación de MATMUL.
+ 
+ ![Captura de Pantalla](https://user-images.githubusercontent.com/69275311/89853308-1477e800-db5f-11ea-9b09-6d27b2bd0ca4.png)
