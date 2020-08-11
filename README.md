@@ -76,4 +76,4 @@
 * Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen de su uso de procesador durante alguna corrida para confirmar.
  * Para MIMATMUL los procesadores que corrían eran más bajos, haciendo que trabajaran los núcleos con un menor desempeño, lo que se traduce en lo que tardaba el programa en terminar de correr a comparación de MATMUL.
  
- ![Captura de Pantalla](https://user-images.githubusercontent.com/69275311/89853308-1477e800-db5f-11ea-9b09-6d27b2bd0ca4.png)
+![Captura de Pantalla](https://user-images.githubusercontent.com/69275311/89854950-3ecba480-db63-11ea-9d4b-5bdd0d3918f7.png)
