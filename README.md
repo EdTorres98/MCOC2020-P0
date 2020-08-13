@@ -88,5 +88,4 @@
     
    - Los gráficos obtenidos para cada tipos de datos analizados son los siguientes:
     
-   ![Caso 1 Single](https://user-images.githubusercontent.com/69275311/90087522-035be200-dceb-11ea-9222-330354244140.png)
-   ![Caso 1 Double](https://user-images.githubusercontent.com/69275311/90087544-12429480-dceb-11ea-8654-ea781788d53c.png)
+   ![Captura de Pantalla 2020-08-12 a la(s) 23 00 11](https://user-images.githubusercontent.com/69275311/90089522-9b5bca80-dcef-11ea-8f85-d1efd652c50c.png)
