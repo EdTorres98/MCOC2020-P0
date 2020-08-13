@@ -89,3 +89,23 @@
    - Los gráficos obtenidos para cada tipos de datos analizados son los siguientes:
     
    ![Captura de Pantalla 2020-08-12 a la(s) 23 00 11](https://user-images.githubusercontent.com/69275311/90089522-9b5bca80-dcef-11ea-8f85-d1efd652c50c.png)
+
+ * Caso 2: Nscipy.linalg.inv, overwrite=False
+   - Para las matrices de N = 2000, en el caso de single y half, ocurren con tiempos muy similares, pero half utiliza menos memoria no llegando a 100MB como sí ocurre con single.
+   - Por otro lado para el caso de double y longdouble con N=2000 transcurren en tiempos similares utilizando casi la misma memoria de 100MB.  
+   - En cuanto al procesador, este utilizó valores cercanos al 60%, por lo que trabaja a mayor capacidad que el caso anterior.  
+   - Se puede apreciar que con loungdouble el comportamiento es mucho más lineal que con los otros tipos. 
+   
+   - Los gráficos obtenidos para cada tipos de datos analizados son los siguientes:
+    
+   ![merge_from_ofoct](https://user-images.githubusercontent.com/69275311/90090019-e9250280-dcf0-11ea-967b-af50accc0e2d.jpg)
+
+ * Caso 3: scipy.linalg.inv, overwrite=True
+   - Para las matrices de N = 2000, en el caso de single y half, ocurren con tiempos muy similares, pero half utiliza menos memoria no llegando a 100MB como sí ocurre con single.
+   - Por otro lado para el caso de double y longdouble con N=2000 transcurren en tiempos similares utilizando en este caso loungdouble un valor superior a 100MB. 
+   - En cuanto al procesador, este utilizó valores cercanos al 75%, por lo que trabaja a mayor capacidad que el caso anterior, lo que se puede deber a que ahora se utiliza overwrite=True.  
+   - Se puede apreciar que con double y loungdouble el comportamiento es mucho más lineal que con los otros tipos, no generandose peaks en algunos tramos. 
+   
+   - Los gráficos obtenidos para cada tipos de datos analizados son los siguientes:
+    
+   ![Captura de Pantalla 2020-08-12 a la(s) 23 18 32](https://user-images.githubusercontent.com/69275311/90090515-35bd0d80-dcf2-11ea-9b4d-9f8718800f79.png)
