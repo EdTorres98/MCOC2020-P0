@@ -109,3 +109,4 @@
    - Los gráficos obtenidos para cada tipos de datos analizados son los siguientes:
     
    ![Captura de Pantalla 2020-08-12 a la(s) 23 18 32](https://user-images.githubusercontent.com/69275311/90090515-35bd0d80-dcf2-11ea-9b4d-9f8718800f79.png)
+   
