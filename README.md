@@ -80,7 +80,7 @@
 
 # Desempeño de INV
     
-   # Caso 1: Numpy.linalg.inv
+   * Caso 1: Numpy.linalg.inv
    - Analizando el desempeño de single y double es muy similar a diferencia de un peak que ocurre entre N=10 y N=20.
    - En cuanto el procesador utilizó valores cercanos al 40% para ambos, por lo que trabajaba a menos del total de su capacidad.
    - Para las matrices de N = 2000, en ambos tipos de datos se obtuvo un tiempo cercano a 1s y con una memoria utilizada aporx de 100 MB.   
