@@ -115,9 +115,12 @@
    double y lungdouble se ejecutan cercanos al tiempo de 1seg y ambos con memorias utilizadas cercanas a 100MB. Por lo que se puede concluir que los tipos d edatos half son los más optimos al trbajaro con ellos ya que se ejecutan en un tiempo inferior y utilizan mcha menos memoria en comparación a los otros 3. Double y longdouble se comportan casi de la misma manera al ser ejecutados.
    
 + ¿Qué algoritmo de inversión cree que utiliza cada método?
+
   + Para numpy.linalg, se puede determinar que utiliza descomposición Cholesky, ya que necesita mucha más memoria al correr el programa por lo que tarda mucho más si itulizaramos scipy.
   + Para scipy.linalg, se puede determinar que utiliza Cayley-Hamilton, ya que para el desarrollo de este código se utiliza solo la Matriz A durante todo momento, haciendo que este método sea algo más rápido que el anterior.
+  
 + ¿Cómo incide el paralelismo y la estructura de caché de su procesador en el desempeño en cada caso?
+
   +Al observar los 3 casos analizados, en todos se repite el factor de que double y longdouble que se comportan de alguna de manera linea, lo que no ocurre con single y hand, el los cuales existen peaks en lagunos tramos. Ocurre lo mismo si analizamos cada caso por sepradado, siendo el Caso 2 donde se observan más peaks. Por lo tanto la estructura de caché en este caso venía utilizada utilizando más memoria y repartiendo esta caché, lo que generó los peaks al pasar al siguiente caso (2). En el caso del paralelismo al estar utilizando el procesador para otros procesos, esto genera que el tiempo aumente al ejecutar el código, y también ocurre que luego del caso 2 el comportamiento fue práctimanente linear, ya que estos se encontraban trabajando desde antes, mejorando su productividad y velocidad.
   
  # Desempeño Ax=b
