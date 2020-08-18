@@ -110,3 +110,22 @@
     
    ![Captura de Pantalla 2020-08-12 a la(s) 23 18 32](https://user-images.githubusercontent.com/69275311/90090515-35bd0d80-dcf2-11ea-9b4d-9f8718800f79.png)
    
++ Análisis de los gráficos obtenidos
+   + Observando los datos otorgados en los gráficos se puede apreciar que al obervar N=2000 en los tipos de datos, que single y half utilizan menos tiempos para ejecutarse, alrededor de 0.1s,  pero ambos con mayores utilidades de memoria que son entre 10MB y 100MB. Po Por otro lado 
+   double y lungdouble se ejecutan cercanos al tiempo de 1seg y ambos con memorias utilizadas cercanas a 100MB. Por lo que se puede concluir que los tipos d edatos half son los más optimos al trbajaro con ellos ya que se ejecutan en un tiempo inferior y utilizan mcha menos memoria en comparación a los otros 3. Double y longdouble se comportan casi de la misma manera al ser ejecutados.
+   
++ ¿Qué algoritmo de inversión cree que utiliza cada método?
+  + Para numpy.linalg, se puede determinar que utiliza descomposición Cholesky, ya que necesita mucha más memoria al correr el programa por lo que tarda mucho más si itulizaramos scipy.
+  + Para scipy.linalg, se puede determinar que utiliza Cayley-Hamilton, ya que para el desarrollo de este código se utiliza solo la Matriz A durante todo momento, haciendo que este método sea algo más rápido que el anterior.
++ ¿Cómo incide el paralelismo y la estructura de caché de su procesador en el desempeño en cada caso?
+  +Al observar los 3 casos analizados, en todos se repite el factor de que double y longdouble que se comportan de alguna de manera linea, lo que no ocurre con single y hand, el los cuales existen peaks en lagunos tramos. Ocurre lo mismo si analizamos cada caso por sepradado, siendo el Caso 2 donde se observan más peaks. Por lo tanto la estructura de caché en este caso venía utilizada utilizando más memoria y repartiendo esta caché, lo que generó los peaks al pasar al siguiente caso (2). En el caso del paralelismo al estar utilizando el procesador para otros procesos, esto genera que el tiempo aumente al ejecutar el código, y también ocurre que luego del caso 2 el comportamiento fue práctimanente linear, ya que estos se encontraban trabajando desde antes, mejorando su productividad y velocidad.
+  
+ # Desempeño Ax=b
+ 
+ ![Gráfico](https://user-images.githubusercontent.com/69275311/90453135-c3677700-e0bd-11ea-808f-860cbda616ff.png)
+  + En primer lugar para analizar el desempeño de Ax=b se realizaron 10 corridas para obtener los promedios, con N desde (2 a 10000)
+  + Para los solvers del sistema se utilizaron, inv(), npSolve, spSolve(sym, pos, pos_overwrite)
+  + De este gráfico se puede concluir que el np(numpay) desde el inicio hasta N=100 fue el más rápido de todos, llegando hasta aprox 1ms, seguido por inv() y los demás muy similares en los tiempos que de tardaron.
+  + Luego para N>200 spSolve(pos_overwrite) fue el más rápido y eficaz al momento de dar las resoluciones, donde se vé una leve intersección en N=10000 entre sym y pos, por lo que para un N>10000 es posible que uno de estos se convierta en el más eficaz para el desarrollo, aunque al definirle que es una matriz simétrica y def. positiva puede que se mantenga ya que los cáculos realizados internamente se van optimizando y ahórrando ejecutar más cálculos para llegar a la solución, como ocurre con los demás métodos.
+  + En cambio para inv() luego de N>80 se mantiene dentro del más lento, infiriendo que es más cercano un alto nivel, además de utilizar solamente el método clásico de la invertida.
+  + Finalmente spSolve y spSolve sym se mantienen muy iguales desde el inicio hasta el final, por lo que su comportamiento y desempeño es similar.
