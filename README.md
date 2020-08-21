@@ -132,3 +132,18 @@
   + Luego para N>200 spSolve(pos_overwrite) fue el más rápido y eficaz al momento de dar las resoluciones, donde se vé una leve intersección en N=10000 entre sym y pos, por lo que para un N>10000 es posible que uno de estos se convierta en el más eficaz para el desarrollo, aunque al definirle que es una matriz simétrica y def. positiva puede que se mantenga ya que los cáculos realizados internamente se van optimizando y ahórrando ejecutar más cálculos para llegar a la solución, como ocurre con los demás métodos.
   + En cambio para inv() luego de N>80 se mantiene dentro del más lento, infiriendo que es más cercano un alto nivel, además de utilizar solamente el método clásico de la invertida.
   + Finalmente spSolve y spSolve sym se mantienen muy iguales desde el inicio hasta el final, por lo que su comportamiento y desempeño es similar.
+
+# Matrices dispersas y complejidad computacional
+
+ + Complejidad algoritmica de MATMUL
+ 
+ ![MATMUL matriz llena](https://user-images.githubusercontent.com/69275311/90937924-db007180-e3d5-11ea-97f8-40dc43d15643.png)
+ ![MATMUL matriz dispersa](https://user-images.githubusercontent.com/69275311/90937966-f23f5f00-e3d5-11ea-862c-6356c0620a24.png)
+ 
+  + En el caso de la matriz dispersa, tiene tiempos de ensamblado mayores y un comportamiento menos lineal que la matriz llena, ya que se generan diversos peaks, no ocurriendo lo mismo para los tiempos de solución, donde la matriz llena demora más en generar las soluciones para N mayores, pero genera un comportamiento mucho más lineal. Sin contar que al inicio se genera lo mismo que se venía viendo anteriormente, donde el procesador necesita adaptarse para comenzar a generar ese comportamiento lineal, no siendo asi en el caso de la matriz dispersa, donde comienza sin ese peak inicial.
+  + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
+  + La complejidad asintótica para la solución es N3, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones.
+  + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensablado, ya que al no ir guardando el trabajo anterior y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son mucho menores que una matriz llena.
+  + Las corridas para el caso de la matriz dispersa se pueden apreciar con más peaks para N<1000, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N.
+  + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
+  
