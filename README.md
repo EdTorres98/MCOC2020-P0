@@ -176,7 +176,7 @@
 
  + El código de ensamblaje de la matriz laplaciana que se utilizó para generar los resultados es el siguiente:
  
-    + Para la matriz dispersa:
+   + Para la matriz dispersa:
   ```
   def laplaciana(N, d=double):
      L_lil = lil_matrix(-(np.eye(N, k=-1, dtype=d)) + 2 *\
@@ -186,7 +186,7 @@
      return L
   ```
 
-    + Para la matriz llena:
+   + Para la matriz llena:
   ```
   def laplaciana(N, d=double):
       L = -(np.eye(N, k=-1, dtype=d)) + 2 *\
@@ -195,4 +195,4 @@
       return L
   ```
 
-    + La elección de esta matriz se fue obteniendo a medida que se realizaban las entregas y se obtenían soluciones y códigos más optimos otorgados en las ayudantías, ya que anteriormente al utilizar ciclos for para ensamblar las matrices, estas tardaban un tiempo muy alto a medida que los N iban aumentando, por lo que las matrices tenían que irse recorriendo completamente a medida que el código iba corriendo. Es por esto que al utilizar la función eye(), esto se evitaba y optimizaba en gran cantidad el tiempo en que se generaban las matrices, siendo de gran eficiencia cuando no se tienen precesadores o características del computador que realicen el trabajo de manera óptima al utilizarlo al límite, como se comprobó en cada entrega del Proyecto 0.
+   + La elección de esta matriz se fue obteniendo a medida que se realizaban las entregas y se obtenían soluciones y códigos más optimos otorgados en las ayudantías, ya que anteriormente al utilizar ciclos for para ensamblar las matrices, estas tardaban un tiempo muy alto a medida que los N iban aumentando, por lo que las matrices tenían que irse recorriendo completamente a medida que el código iba corriendo. Es por esto que al utilizar la función eye(), esto se evitaba y optimizaba en gran cantidad el tiempo en que se generaban las matrices, siendo de gran eficiencia cuando no se tienen precesadores o características del computador que realicen el trabajo de manera óptima al utilizarlo al límite, como se comprobó en cada entrega del Proyecto 0.
