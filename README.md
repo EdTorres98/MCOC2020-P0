@@ -137,62 +137,62 @@
 
  + Complejidad algoritmica de MATMUL
  
- ![MATMUL matriz llena](https://user-images.githubusercontent.com/69275311/90937924-db007180-e3d5-11ea-97f8-40dc43d15643.png)
- ![MATMUL matriz dispersa](https://user-images.githubusercontent.com/69275311/90937966-f23f5f00-e3d5-11ea-862c-6356c0620a24.png)
- 
-  + Para la multiplicación, en el caso de la matriz dispersa, tiene tiempos de ensamblado mayores y un comportamiento menos lineal que la matriz llena, ya que se generan diversos peaks, no ocurriendo lo mismo para los tiempos de solución, donde la matriz llena demora más en generar las soluciones para N mayores, pero genera un comportamiento mucho más lineal. Sin contar que al inicio se genera lo mismo que se venía viendo anteriormente, donde el procesador necesita adaptarse para comenzar a generar ese comportamiento lineal, no siendo asi en el caso de la matriz dispersa, donde comienza sin ese peak inicial.
-  + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
-  + La complejidad asintótica para la solución es N3, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones.
-  + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensamblado, ya que al no ir guardando lo procesado anteriormente y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son mucho menores que una matriz llena.
-  + Las corridas para el caso de la matriz dispersa se pueden apreciar con más peaks para N<1000, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz llena para realizar multiplicaciones y generar soluciones.
-  + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
+  ![MATMUL matriz llena](https://user-images.githubusercontent.com/69275311/90937924-db007180-e3d5-11ea-97f8-40dc43d15643.png)
+  ![MATMUL matriz dispersa](https://user-images.githubusercontent.com/69275311/90937966-f23f5f00-e3d5-11ea-862c-6356c0620a24.png)
+
+   + Para la multiplicación, en el caso de la matriz dispersa, tiene tiempos de ensamblado mayores y un comportamiento menos lineal que la matriz llena, ya que se generan diversos peaks, no ocurriendo lo mismo para los tiempos de solución, donde la matriz llena demora más en generar las soluciones para N mayores, pero genera un comportamiento mucho más lineal. Sin contar que al inicio se genera lo mismo que se venía viendo anteriormente, donde el procesador necesita adaptarse para comenzar a generar ese comportamiento lineal, no siendo asi en el caso de la matriz dispersa, donde comienza sin ese peak inicial.
+   + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
+   + La complejidad asintótica para la solución es N3, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones.
+   + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensamblado, ya que al no ir guardando lo procesado anteriormente y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son mucho menores que una matriz llena.
+   + Las corridas para el caso de la matriz dispersa se pueden apreciar con más peaks para N<1000, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz llena para realizar multiplicaciones y generar soluciones.
+   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
 
 
  + Complejidad algoritmica de SOLVE
  
- ![SOLVE matriz llena](https://user-images.githubusercontent.com/69275311/90940654-8660f480-e3dd-11ea-8bcb-8ec967396079.png)
- ![SOLVE matriz dispersa](https://user-images.githubusercontent.com/69275311/90940667-94167a00-e3dd-11ea-8fff-8fb6dcf0b9e9.png)
- 
-  + Para relizar el solve, en el caso de la matriz dispersa, tiene tiempos de ensamblado muy similares a la matriz llena. En el caso de la matriz llena comienza con tiempos menores, los cuales van aumentando a medida que aumenta el N, y generando pequeños peaks durante el transcurso del código, no ocurriendo esto en la matriz dispersa, la cual tiene un comportamientos más lineal. Para los tiempos de solución se observa que la matriz dispersa es mucho más eficiente y rápida, al inicio tienen tiempos casi constantes, los cuales suben levemente a medida que aumenta el N, no siendo asi para la matriz llena.
-  + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
-  + La complejidad asintótica para la solución es N3, para la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones, en cambio para la matriz dispersa la complejidad asintótica para la solución es N, ya que al duplicar la matriz en términos de sus diagonales, solo duplicará el tiempo de soluciones, evidenciando la eficiencia de utilizar una matriz dispersa para obtener soluciones.
-  + En referencia a los tamaños de las matrices se utilizó N=16000 como máximo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensamblado, ya que al no ir guardando lo procesado anteriormente y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son mucho menores que una matriz llena.
-  + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar soluciones.
-  + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
+  ![SOLVE matriz llena](https://user-images.githubusercontent.com/69275311/90940654-8660f480-e3dd-11ea-8bcb-8ec967396079.png)
+  ![SOLVE matriz dispersa](https://user-images.githubusercontent.com/69275311/90940667-94167a00-e3dd-11ea-8fff-8fb6dcf0b9e9.png)
+
+   + Para relizar el solve, en el caso de la matriz dispersa, tiene tiempos de ensamblado muy similares a la matriz llena. En el caso de la matriz llena comienza con tiempos menores, los cuales van aumentando a medida que aumenta el N, y generando pequeños peaks durante el transcurso del código, no ocurriendo esto en la matriz dispersa, la cual tiene un comportamientos más lineal. Para los tiempos de solución se observa que la matriz dispersa es mucho más eficiente y rápida, al inicio tienen tiempos casi constantes, los cuales suben levemente a medida que aumenta el N, no siendo asi para la matriz llena.
+   + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
+   + La complejidad asintótica para la solución es N3, para la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones, en cambio para la matriz dispersa la complejidad asintótica para la solución es N, ya que al duplicar la matriz en términos de sus diagonales, solo duplicará el tiempo de soluciones, evidenciando la eficiencia de utilizar una matriz dispersa para obtener soluciones.
+   + En referencia a los tamaños de las matrices se utilizó N=16000 como máximo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensamblado, ya que al no ir guardando lo procesado anteriormente y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son mucho menores que una matriz llena.
+   + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar soluciones.
+   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
 
 
  + Complejidad algoritmica de INV
  
- ![INV matriz llena](https://user-images.githubusercontent.com/69275311/90940577-3f72ff00-e3dd-11ea-92c5-8e17011e4770.png)
- ![INV matriz dispersa](https://user-images.githubusercontent.com/69275311/90940593-4e59b180-e3dd-11ea-86d0-330e07da2404.png)
- 
-  + Para utilizar la inversa, en el caso de la matriz dispersa, tiene tiempos de ensamblado mayores y un comportamiento más lineal que la matriz llena la cual tiene muchos peaks en el proceso, no ocurriendo lo mismo para los tiempos de solución, donde la matriz llena demora más en generar las soluciones para N mayores, pero genera un comportamiento mucho más lineal. Sin contar que al inicio se genera lo mismo que se venía viendo anteriormente, donde el procesador necesita adaptarse para comenzar a generar ese comportamiento lineal, no siendo asi en el caso de la matriz dispersa, donde comienza sin ese peak inicial.
-  + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
-  + La complejidad asintótica para la solución es N3, para la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones, en cambio para la matriz dispersa la complejidad asintótica para la solución es N2, ya que al duplicar la matriz en términos de sus diagonales, esta cudruplicará el tiempo de soluciones, evidenciando la eficiencia de utilizar una matriz dispersa para utilizar la inversa.
-  + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensablado, ya que al no ir guardando el trabajo anterior y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son menores que una matriz llena.
-  + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar utilizar la inversa y generar soluciones.
-  + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
+  ![INV matriz llena](https://user-images.githubusercontent.com/69275311/90940577-3f72ff00-e3dd-11ea-92c5-8e17011e4770.png)
+  ![INV matriz dispersa](https://user-images.githubusercontent.com/69275311/90940593-4e59b180-e3dd-11ea-86d0-330e07da2404.png)
+
+   + Para utilizar la inversa, en el caso de la matriz dispersa, tiene tiempos de ensamblado mayores y un comportamiento más lineal que la matriz llena la cual tiene muchos peaks en el proceso, no ocurriendo lo mismo para los tiempos de solución, donde la matriz llena demora más en generar las soluciones para N mayores, pero genera un comportamiento mucho más lineal. Sin contar que al inicio se genera lo mismo que se venía viendo anteriormente, donde el procesador necesita adaptarse para comenzar a generar ese comportamiento lineal, no siendo asi en el caso de la matriz dispersa, donde comienza sin ese peak inicial.
+   + La complejidad asintótica para el ensamblado es N2, tanto para la matriz dispersa y la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo se irá cuadruplicando para generar el ensamblado de las matrices.
+   + La complejidad asintótica para la solución es N3, para la matriz llena, esto se produce, por que al ir duplicando la matriz en términos de una de sus diagonales, el tiempo en este caso se irá octuplicando para generar las soluciones, en cambio para la matriz dispersa la complejidad asintótica para la solución es N2, ya que al duplicar la matriz en términos de sus diagonales, esta cudruplicará el tiempo de soluciones, evidenciando la eficiencia de utilizar una matriz dispersa para utilizar la inversa.
+   + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensablado, ya que al no ir guardando el trabajo anterior y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son menores que una matriz llena.
+   + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar utilizar la inversa y generar soluciones.
+   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
 
 
  + El código de ensamblaje de la matriz laplaciana que se utilizó para generar los resultados es el siguiente:
  
-  + Para la matriz dispersa:
-```
-def laplaciana(N, d=double):
-   L_lil = lil_matrix(-(np.eye(N, k=-1, dtype=d)) + 2 *\
-       (np.eye(N, dtype=d)) + -(np.eye(N,k=+1, dtype=d)))
-       
-   L = csr_matrix(L_lil)
-   return L
-```
+   + Para la matriz dispersa:
+ ```
+ def laplaciana(N, d=double):
+    L_lil = lil_matrix(-(np.eye(N, k=-1, dtype=d)) + 2 *\
+        (np.eye(N, dtype=d)) + -(np.eye(N,k=+1, dtype=d)))
 
-  + Para la matriz llena:
-```
-def laplaciana(N, d=double):
-    L = -(np.eye(N, k=-1, dtype=d)) + 2 *\
-        (np.eye(N, dtype=d)) + -(np.eye(N,k=+1, dtype=d))
-        
+    L = csr_matrix(L_lil)
     return L
-```
+ ```
 
-  + La elección de esta matriz se fue obteniendo a medida que se realizaban las entregas y se obtenían soluciones y códigos más optimos otorgados en las ayudantías, ya que anteriormente al utilizar ciclos for para ensamblar las matrices, estas tardaban un tiempo muy alto a medida que los N iban aumentando, por lo que las matrices tenían que irse recorriendo completamente a medida que el código iba corriendo. Es por esto que al utilizar la función eye(), esto se evitaba y optimizaba en gran cantidad el tiempo en que se generaban las matrices, siendo de gran eficiencia cuando no se tienen precesadores o características del computador que realicen el trabajo de manera óptima al utilizarlo al límite, como se comprobó en cada entrega del Proyecto 0.
+   + Para la matriz llena:
+ ```
+ def laplaciana(N, d=double):
+     L = -(np.eye(N, k=-1, dtype=d)) + 2 *\
+         (np.eye(N, dtype=d)) + -(np.eye(N,k=+1, dtype=d))
+
+     return L
+ ```
+
+   + La elección de esta matriz se fue obteniendo a medida que se realizaban las entregas y se obtenían soluciones y códigos más optimos otorgados en las ayudantías, ya que anteriormente al utilizar ciclos for para ensamblar las matrices, estas tardaban un tiempo muy alto a medida que los N iban aumentando, por lo que las matrices tenían que irse recorriendo completamente a medida que el código iba corriendo. Es por esto que al utilizar la función eye(), esto se evitaba y optimizaba en gran cantidad el tiempo en que se generaban las matrices, siendo de gran eficiencia cuando no se tienen precesadores o características del computador que realicen el trabajo de manera óptima al utilizarlo al límite, como se comprobó en cada entrega del Proyecto 0.
