@@ -147,6 +147,7 @@
   + Las corridas para el caso de la matriz dispersa se pueden apreciar con más peaks para N<1000, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz llena para realizar multiplicaciones y generar soluciones.
   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
 
+
  + Complejidad algoritmica de SOLVE
  
  ![SOLVE matriz llena](https://user-images.githubusercontent.com/69275311/90940654-8660f480-e3dd-11ea-8bcb-8ec967396079.png)
@@ -159,6 +160,7 @@
   + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar soluciones.
   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
 
+
  + Complejidad algoritmica de INV
  
  ![INV matriz llena](https://user-images.githubusercontent.com/69275311/90940577-3f72ff00-e3dd-11ea-92c5-8e17011e4770.png)
@@ -170,6 +172,7 @@
   + En referencia a los tamaños de las matrices se utilizó N=10000 como máximo, ya que para N mayores el programa se congelaba, o demoraba mucho tiempo. En cuanto a los comportamientos se puede observar que la matriz dispersa tiene un comportamiento inicial más constante, sin ir aumentando los tiempos de solución o ensablado, ya que al no ir guardando el trabajo anterior y además no multiplicando todos los términos, ya que si la matriz tiene muchos ceros, no los tomará en cuenta, lo que optimiza el tiempo durante un rango de N, y verificando que para N mayores, los tiempo son menores que una matriz llena.
   + Las corridas para el caso de la matriz dispersa se pueden apreciar en este caso con menos peaks, pero luego comienza a tener un comportamiento más lineal (o sub-lineal), en cambio para la matriz llena solo se observa el peak inicial (que se comentó anteriormente) para luego ir subiendo linealmente hasta tener una tendencia a un N. Siendo más estable la matriz dispersa para generar utilizar la inversa y generar soluciones.
   + Cabe destacar que en el gráfico no se ven los N2, N3, N4 de manera lineal, por la dispersión que hay en un inicio, ya que se utilizaron más valores para las corridas realizadas, y había que volver a generar los archivos de texto.
+
 
  + El código de ensamblaje de la matriz laplaciana que se utilizó para generar los resultados es el siguiente:
  
